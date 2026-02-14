@@ -277,11 +277,14 @@ I have also not made my work available to anyone else.
         .skills-icons{
             display: flex;
             gap: 5px;
+            align-items: center;
+            margin-top: 2px;
         }
 
         .skills-icons img{
             width:30px;
             height: 28px;
+            object-fit: contain;
         }
 
         .skills-icons:hover{
@@ -358,19 +361,23 @@ I have also not made my work available to anyone else.
 
             <div class="project-item">
                 <h3>Business and Analytics</h3>
-                <span class="skills-icons"><img src="word.png"></span>
-                <span class="skills-icons"><img src="excel.png"></span>
-                <span class="skills-icons"><img src="powerpoint.png"></span>
-                <span class="skills-icons"><img src="sql.jpg"></span>
+                <div class="skills-icons">
+                    <img src="word.png">
+                    <img src="excel.png">
+                    <img src="powerpoint.png">
+                    <img src="sql.jpg">
+                </div>
             </div>
 
             <div class="project-item">
                 <h3>Programming Languages</h3>
-                <span class="skills-icons"><img src="c++.png"></span>
-                <span class="skills-icons"><img src="java.png"></span>
-                <span class="skills-icons"><img src="html.png"></span>
-                
+                <div class="skills-icons">
+                    <img src="c++.png">
+                    <img src="java.png">
+                    <img src="html.png">
+                </div>
             </div>
+
 
             <div class="project-item">
                 <h3>Soft Skills Highlights</h3>
