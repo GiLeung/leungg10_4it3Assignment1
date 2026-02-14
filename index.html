@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+SA: I Gianna Leung, 400443010 certify that this material is my original work.
+No other person's work has been used wihtout due acknowledgement.
+I have also not made my work available to anyone else.
+-->
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Gianna Leung Assignment 1 </title>
+
+    <style>
+        body {
+            margin: 1px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #7393b3;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 120px;
+        }
+
+        header {
+            margin-left: 50px;
+            color: white;
+            padding: 60px 20px;
+            text-align: left;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .profile-photo {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .profile-photo:hover{
+            transform: translateY(-5px);
+        }
+
+        @keyframes drop-in{
+            0%{
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100%{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes section-in{
+            0%{
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100%{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .icon-text{
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .icon-text img{
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            vertical-align: middle;
+            position: relative;
+            top: -2px;
+        }
+
+        .resume-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #ffffff;
+            color: #303655;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            border: 2px solid #ffffff;
+            transition: all 0.25s ease;
+            margin-right: 20px;
+        }
+
+        .resume-button:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+            opacity: 0;
+            transform: translateY(-30px);
+            animation: drop-in 700ms ease-out forwards;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            width: 85%;
+            margin: auto auto;
+        }
+
+        h2 {
+            color: #0072bb;
+            border-bottom: 2px solid #0072bb;
+            padding-bottom: 6px;
+            margin-bottom: 20px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .section {
+            background: white;
+            width: 100%;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            margin-bottom: 35px;
+        }
+
+        .resume-item {
+            margin-bottom: 18px;
+        }
+
+        .resume-item h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #444;
+        }
+
+        .resume-item p {
+            margin: 5px 0 0;
+            color: #555;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .project-item {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #303655;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-item h3 {
+            margin-top: 0;
+            color: #303655;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+
+        .navigation-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #303655;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            z-index: 500;
+        }
+
+        .bar-container {
+            margin: 0 auto;
+            padding: 0px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bar-bigname {
+            font-family:'Times New Roman', Times, serif;
+            font-weight: bold;
+            font-size: 50px;
+            color:#bfcbce;
+        }
+
+        .bar-buttons {
+            display: flex;
+            justify-content: space-evenly;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: transparent;
+            color: #bfcbce;
+            font-weight: 600;
+            font-size: large;
+            border-radius: 6px;
+            transition: all 0.25s ease;
+            margin-right: 20px;
+        }
+
+        .bar-buttons a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .bar-buttons a:hover {
+            color: #303655;
+        }
+
+        .contact-form{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+        }
+
+        .contact-form label{
+            font-weight: bold;
+            color: #303655;
+        }
+
+        .contact-form input, .contact-form textarea{
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #bfcbce;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus{
+            border-color: #303655;
+        }
+
+        .contact-button{
+            background-color: #303655;
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+            width: fit-content;
+        }
+
+        .contact-button:hover{
+            background-color: #ffffff;
+            color: #303655;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<nav class="navigation-bar">
+    <div class="bar-container">
+        <span class="bar-bigname">Gianna Leung</span>
+        <div >
+            <a class="bar-buttons" href="#skills-section" style="font-family: 'Times New Roman', Times, serif; text-align: center;">Skills</a>
+            <a class="bar-buttons" href="#education-section" style="font-family: 'Times New Roman', Times, serif;text-align: center;">Education</a>
+            <a class="bar-buttons" href="#experience-section" style="font-family: 'Times New Roman', Times, serif; text-align: center;">Experience</a>
+            <a class="bar-buttons" href="#project-section" style="font-family: 'Times New Roman', Times, serif;text-align: center;">Projects</a>
+            <a class="bar-buttons" href="#contact-me" style="font-family: 'Times New Roman', Times, serif;text-align: center;">Contact Me</a>
+
+        </div>
+        
+    </div>
+</nav>
+
+
+<header>
+    <table style="width: 90%; margin: 3%;">
+        <tr>
+            <td>
+                <h1 class="drop-in"> Hi! I'm Gianna Leung, </h1>
+
+                <br> an Automation Student at McMaster University experienced in process controls and cross-functional communication.
+                <br> 
+                
+            
+
+                <span class="icon-text">
+                    <a href="Gianna Leung Resume 2026 no personal info.pdf" class="resume-button" download><img src="free-document-icon-901-thumb.png">
+                        Download my Resume
+                    </a>
+                    <a href="https://www.linkedin.com/in/gianna-leung" class="resume-button"><img src="linkedin icon.png">
+                        Visit my Linkedin
+                    </a>
+
+                </span>
+            
+            </td>
+            <td>
+                <img src="Gianna_Lab1_photo.jpg" class="profile-photo">
+
+            </td>
+        </tr>
+    </table>
+    
+</header>
+
+
+
+<div class="container">
+
+
+    <div class="section">
+        <h2 class="section-in">Skills</h2>
+
+        <div class="projects" id="skills-section">
+
+            <div class="project-item">
+                <h3>Lab Skills</h3>
+                
+                <p>ajf;laskdf</p>
+            </div>
+
+            <div class="project-item">
+                <h3>Business Skills</h3>
+                <p>a;ljf;l</p>
+            </div>
+
+            <div class="project-item">
+                <h3>Programming Languages</h3>
+                <p>a;ljf;l</p>
+            </div>
+
+            <div class="project-item">
+                <h3>Soft Skills</h3>
+                <p>a;ljf;l</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-in">Education</h2>
+
+        <div class="projects" id="education-section">
+
+            <div class="project-item">
+                <h3>Project One</h3>
+                <p>ajf;laskdf</p>
+            </div>
+
+            <div class="project-item">
+                <h3>Project Two</h3>
+                <p>a;ljf;l</p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="section">
+        <h2 class="section-in">Projects</h2>
+
+        <div class="projects" id="project-section">
+
+            <div class="project-item">
+                <h3>Project One</h3>
+                <p>ajf;laskdf</p>
+            </div>
+
+            <div class="project-item">
+                <h3>Project Two</h3>
+                <p>a;ljf;l</p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="section">
+        <h2 class="section-in">Relevant Experience</h2>
+        <div id="experience-section">
+            <div class="resume-item">
+                <a class="icon-text"><img src="DP_World_2021_logo.svg.png">
+                        <h3>Process Engineer | DP World</h3>
+                    </a>
+                <br>January - December 2025
+                <ul>
+                    <li>Observed operations and utilized Lean methodologies to identify solutions and reduce waste.</li>
+                    <li>Trained in MOST Time Analysis, simulating process changes to analyse solutions and remove bottlenecks.</li>
+                    <li>Regularly updated, reviewed, and supported SOP changes, training, and audits.</li>
+                    <li>Responsible for data collection through stopwatch, PMTS, and Cp Cpk calibration, and data from digital WMS.</li>
+                </ul>
+            </div>
+
+        <div class="resume-item">
+            <a class="icon-text"><img src="the steam project.png">
+                        <h3>Program Instructor Co-op | The STEAM Project</h3>
+                    </a>
+                
+                <br>June - August 2024
+                <ul>
+                    <li>Designed and prototyped various laser-cut and 3D printed projects using Illustrator, AutoCAD.</li>
+                    <li>Consistently managed organized inventory, and documentation for projects.</li>
+                    <li>Developed and utilized extensive communication skills with a wide variety of stakeholder demographics.</li>
+                </ul>
+        </div>
+
+        <div class="resume-item">
+            <a class="icon-text"><img src="mcmaster_engineering_ecocar_logo.jpg">
+                        <h3>Propulsion Controls Modelling Team Member | McMaster EcoCAR</h3>
+                    </a>
+                
+                <br>February 2024
+                <ul>
+                    <li>Implemented requirements for fault handling in accelerator pedal model using Matlab.</li>
+                    <li>Researched and analyzed community demographics for use in data analytics and event planning with Excel.</li>
+                    <li>Assisted with research project in collaboration with PhD researcher on ageism and driving, iAm Project.</li>
+                </ul>
+        </div>
+
+
+        <div class="resume-item">
+            <a class="icon-text"><img src="hinston.jpg">
+                        <h3>Student Intern | Hinston Electronics Canada Co. Ltd.</h3>
+                    </a>
+                
+                <br>June 2018-August 2019
+                <ul>
+                    <li>Manually updated clock radio software to a newer operating platform using process optimization.</li>
+                    <li>Assisted inventory management and customer service for North American market.</li>
+                    <li>Reviewed technical writing and review of electronics’ user manuals in English and French.</li>
+                </ul>
+        </div>
+
+        </div>
+       
+    </div>
+
+    <div class="section">
+        <h2 class="section-in">Contact Me</h2>
+
+        <div class="projects" id="contact-me">
+            <form class="contact-form">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+
+            <p><label for="message">Message</label></p>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit" class="contact-button">Send Message</button>
+    </form>
+
+
+        </div>
+    </div>
+    
+
+</div>
+
+<footer>
+    &copy;2026 - Gianna Leung
+</footer>
+
+</body>
+</html>
