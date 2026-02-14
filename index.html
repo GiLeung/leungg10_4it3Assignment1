@@ -276,19 +276,20 @@ I have also not made my work available to anyone else.
 
         .skills-icons{
             display: flex;
-            gap: 10px;
+            flex-direction: row;
+            gap: 20px;
             align-items: center;
             margin-top: 2px;
         }
 
         .skills-icons img{
-            width:30px;
-            height: 28px;
+            width:40px;
+            height: 40px;
             object-fit: contain;
         }
 
-        .skills-icons:hover{
-            transform: translateY(-8px);
+        .skills-icons img:hover{
+            transform: translateY(-5px);
         }
 
     </style>
@@ -381,7 +382,13 @@ I have also not made my work available to anyone else.
 
             <div class="project-item">
                 <h3>Soft Skills Highlights</h3>
-                <p>a;ljf;l</p>
+                <div class="skills-icons"><img src="communication.png">
+                        <ul>
+                            <li>Cross-Functional Communication</li>
+                            <li>Relationship and Team-Building</li>
+                            <li>Detail-Oriented and Observation</li>
+                        </ul>
+                </div>
             </div>
 
         </div>
